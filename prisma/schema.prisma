@@ -14,8 +14,24 @@ datasource db {
 }
 
 model User {
-  userId  Int @id() @default(autoincrement())
-  email String @unique
-  name String
-  password String
+  id          Int     @id() @default(autoincrement())
+  email           String  @unique
+  name            String  
+  password        String
+  tarefas         Tarefa[]
+}
+
+enum Status {
+  pendente
+  concluida
+}
+
+model Tarefa {
+  id              String    @id @default(uuid())
+  title           String
+  description     String
+  status          Status
+  createdAt       DateTime  @default(now())
+  userId          Int
+  user            User      @relation(fields: [userId], references: [id])
 }
