@@ -1,4 +1,4 @@
-import { Tarefa } from "./Tarefa.enum";
+import { Tarefa } from "./Status.enum";
 
 export class User {
     private email: String;
@@ -18,5 +18,5 @@ export class User {
         this.tarefas = tarefas;
     }
 
-    
+
 }
